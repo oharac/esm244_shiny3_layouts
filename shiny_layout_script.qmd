@@ -108,7 +108,7 @@ server <- function(input, output) {
 
 (@) Save the app and run it.  Note the title panel, the sidebar panel, and the main panel.
 
-## Let's try a more flexible layout
+## Let's try a more flexible  layout
 
 (@) Comment out the sidebarLayout code, using command-shift-C.  We'll copy and paste the widgets etc. in just a minute.
 
