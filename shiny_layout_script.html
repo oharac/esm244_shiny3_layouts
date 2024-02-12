@@ -3032,11 +3032,12 @@ vertical-align: -.125em;
   <li><a href="#single-page-layouts" id="toc-single-page-layouts" class="nav-link" data-scroll-target="#single-page-layouts">Single page layouts</a>
   <ul class="collapse">
   <li><a href="#get-started" id="toc-get-started" class="nav-link" data-scroll-target="#get-started">Get started:</a></li>
-  <li><a href="#build-a-basic-sidebar-layout" id="toc-build-a-basic-sidebar-layout" class="nav-link" data-scroll-target="#build-a-basic-sidebar-layout">Build a basic sidebar layout</a></li>
+  <li><a href="#build-a-basic-sidebarlayout" id="toc-build-a-basic-sidebarlayout" class="nav-link" data-scroll-target="#build-a-basic-sidebarlayout">Build a basic <code>sidebarLayout</code></a></li>
   <li><a href="#build-a-reactive-plot-in-the-server" id="toc-build-a-reactive-plot-in-the-server" class="nav-link" data-scroll-target="#build-a-reactive-plot-in-the-server">Build a reactive plot in the server</a></li>
-  <li><a href="#lets-try-a-more-flexible-layout" id="toc-lets-try-a-more-flexible-layout" class="nav-link" data-scroll-target="#lets-try-a-more-flexible-layout">Let’s try a more flexible layout</a></li>
+  <li><a href="#lets-try-a-more-flexible-layout-fluidrow" id="toc-lets-try-a-more-flexible-layout-fluidrow" class="nav-link" data-scroll-target="#lets-try-a-more-flexible-layout-fluidrow">Let’s try a more flexible layout: <code>fluidRow</code></a></li>
   </ul></li>
   <li><a href="#tabset-page-layout" id="toc-tabset-page-layout" class="nav-link" data-scroll-target="#tabset-page-layout">Tabset page layout</a></li>
+  <li><a href="#navbar-page-layout" id="toc-navbar-page-layout" class="nav-link" data-scroll-target="#navbar-page-layout">Navbar page layout</a></li>
   </ul>
 </nav>
 </div>
@@ -3107,8 +3108,8 @@ vertical-align: -.125em;
 <li>Notice that a ‘Run app’ option shows up - but we know there’s nothing in the app yet.</li>
 </ol>
 </section>
-<section id="build-a-basic-sidebar-layout" class="level2">
-<h2 class="anchored" data-anchor-id="build-a-basic-sidebar-layout">Build a basic sidebar layout</h2>
+<section id="build-a-basic-sidebarlayout" class="level2">
+<h2 class="anchored" data-anchor-id="build-a-basic-sidebarlayout">Build a basic <code>sidebarLayout</code></h2>
 <p>This is the same layout we created in the first Shiny video, but we’ll briefly recreate it here so we can see how other layouts differ.</p>
 <ol start="6" class="example" type="1">
 <li>Here, we’ll add a title panel, and a sidebar/main panel layout in our UI.</li>
@@ -3137,19 +3138,19 @@ vertical-align: -.125em;
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-2" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-2" data-code-lines="5">Inside <code>fluidPage()</code> create a <code>titlePanel</code> (top of the app)</span>
+<span data-code-cell="annotated-cell-2" data-code-annotation="1" data-code-lines="5">Inside <code>fluidPage()</code> create a <code>titlePanel</code> (top of the app)</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-2" data-code-lines="6"><code>sidebarLayout</code> creates a layout that includes a narrow side panel and large main panel</span>
+<span data-code-cell="annotated-cell-2" data-code-annotation="2" data-code-lines="6"><code>sidebarLayout</code> creates a layout that includes a narrow side panel and large main panel</span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-2" data-code-lines="7">Define the <code>sidebarPanel</code></span>
+<span data-code-cell="annotated-cell-2" data-code-annotation="3" data-code-lines="7">Define the <code>sidebarPanel</code></span>
 </dd>
 <dt data-target-cell="annotated-cell-2" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-2" data-code-lines="14">Define the <code>mainPanel</code></span>
+<span data-code-cell="annotated-cell-2" data-code-annotation="4" data-code-lines="14">Define the <code>mainPanel</code></span>
 </dd>
 </dl>
 <ol start="7" class="example" type="1">
@@ -3176,11 +3177,11 @@ vertical-align: -.125em;
 <li>Save the app and run it. Note the title panel, the sidebar panel, and the main panel.</li>
 </ol>
 </section>
-<section id="lets-try-a-more-flexible-layout" class="level2">
-<h2 class="anchored" data-anchor-id="lets-try-a-more-flexible-layout">Let’s try a more flexible layout</h2>
+<section id="lets-try-a-more-flexible-layout-fluidrow" class="level2">
+<h2 class="anchored" data-anchor-id="lets-try-a-more-flexible-layout-fluidrow">Let’s try a more flexible layout: <code>fluidRow</code></h2>
 <ol start="10" class="example" type="1">
 <li><p>Comment out the sidebarLayout code, using command-shift-C. We’ll copy and paste the widgets etc. in just a minute.</p></li>
-<li><p>Now we’ll use the <code>fluidRow</code> type of layout, which can create rows with columns of different widths within them. This gives more control over the layout than <code>sidebarLayout</code>.</p></li>
+<li><p>Now we’ll use the <code>fluidRow</code> type of layout, which can create rows with columns of different widths within them. Each row is 12 column units wide, which we can allocate across multiple columns (or a single 12-wide column!). For example, two equally wide columns would be six units each, or easily create three or four equal columns. They don’t have to be equal, e.g., you could have a 3-unit, a 5-unit, and a 4-unit column if that worked well for your app. This gives more control over the layout than <code>sidebarLayout</code>.</p></li>
 </ol>
 <div class="sourceCode" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
 <span id="annotated-cell-4-2"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -3200,17 +3201,17 @@ vertical-align: -.125em;
 <span id="annotated-cell-4-16"><a href="#annotated-cell-4-16" aria-hidden="true" tabindex="-1"></a>  <span class="co">#   )</span></span>
 <span id="annotated-cell-4-17"><a href="#annotated-cell-4-17" aria-hidden="true" tabindex="-1"></a>  <span class="co"># )</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-4-18" class="code-annotation-target"><a href="#annotated-cell-4-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fluidRow</span>(</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();" href>3</a><span id="annotated-cell-4-19" class="code-annotation-target"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(</span>
-<span id="annotated-cell-4-20"><a href="#annotated-cell-4-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">6</span>,</span>
-<span id="annotated-cell-4-21"><a href="#annotated-cell-4-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">h3</span>(<span class="st">&#39;Header for first row, first column&#39;</span>),</span>
-<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a>      <span class="fu">selectInput</span>(<span class="at">inputId =</span> <span class="st">&#39;test&#39;</span>, <span class="at">label =</span> <span class="st">&#39;choose&#39;</span>,</span>
-<span id="annotated-cell-4-23"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>                  <span class="at">choices =</span> <span class="fu">c</span>(month.name))</span>
-<span id="annotated-cell-4-24"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>    ),</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();" href>4</a><span id="annotated-cell-4-25" class="code-annotation-target"><a href="#annotated-cell-4-25" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(</span>
-<span id="annotated-cell-4-26"><a href="#annotated-cell-4-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">width =</span> <span class="dv">6</span>,</span>
-<span id="annotated-cell-4-27"><a href="#annotated-cell-4-27" aria-hidden="true" tabindex="-1"></a>      <span class="fu">h2</span>(<span class="st">&#39;Header for first row, second column&#39;</span>),</span>
-<span id="annotated-cell-4-28"><a href="#annotated-cell-4-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">radioButtons</span>(<span class="at">inputId =</span> <span class="st">&#39;test2&#39;</span>, <span class="at">label =</span> <span class="st">&#39;click&#39;</span>,</span>
-<span id="annotated-cell-4-29"><a href="#annotated-cell-4-29" aria-hidden="true" tabindex="-1"></a>                   <span class="at">choices =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="3" onclick="event.preventDefault();" href>3</a><span id="annotated-cell-4-19" class="code-annotation-target"><a href="#annotated-cell-4-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">6</span>,</span>
+<span id="annotated-cell-4-20"><a href="#annotated-cell-4-20" aria-hidden="true" tabindex="-1"></a>      <span class="fu">h3</span>(<span class="st">&#39;Column 1 header&#39;</span>),</span>
+<span id="annotated-cell-4-21"><a href="#annotated-cell-4-21" aria-hidden="true" tabindex="-1"></a>      <span class="fu">radioButtons</span>(</span>
+<span id="annotated-cell-4-22"><a href="#annotated-cell-4-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">inputId =</span> <span class="st">&#39;cyl_button&#39;</span>,</span>
+<span id="annotated-cell-4-23"><a href="#annotated-cell-4-23" aria-hidden="true" tabindex="-1"></a>        <span class="at">label =</span> <span class="st">&#39;Number of cylinders&#39;</span>,</span>
+<span id="annotated-cell-4-24"><a href="#annotated-cell-4-24" aria-hidden="true" tabindex="-1"></a>        <span class="at">choices =</span> <span class="fu">c</span>(<span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>)</span>
+<span id="annotated-cell-4-25"><a href="#annotated-cell-4-25" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="annotated-cell-4-26"><a href="#annotated-cell-4-26" aria-hidden="true" tabindex="-1"></a>    ), <span class="do">### end column</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="4" onclick="event.preventDefault();" href>4</a><span id="annotated-cell-4-27" class="code-annotation-target"><a href="#annotated-cell-4-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">column</span>(<span class="at">width =</span> <span class="dv">6</span>,</span>
+<span id="annotated-cell-4-28"><a href="#annotated-cell-4-28" aria-hidden="true" tabindex="-1"></a>      <span class="fu">h3</span>(<span class="st">&#39;Column 2 header&#39;</span>),</span>
+<span id="annotated-cell-4-29"><a href="#annotated-cell-4-29" aria-hidden="true" tabindex="-1"></a>      <span class="fu">plotOutput</span>(<span class="st">&#39;mpg_plot&#39;</span>)</span>
 <span id="annotated-cell-4-30"><a href="#annotated-cell-4-30" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="annotated-cell-4-31"><a href="#annotated-cell-4-31" aria-hidden="true" tabindex="-1"></a>  ), <span class="do">### end fluidRow 1</span></span>
 <span id="annotated-cell-4-32"><a href="#annotated-cell-4-32" aria-hidden="true" tabindex="-1"></a></span>
@@ -3236,19 +3237,19 @@ vertical-align: -.125em;
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-annotation="1" data-code-cell="annotated-cell-4" data-code-lines="5">Comment out the previous layout.</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="1" data-code-lines="5">Comment out the previous layout.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-annotation="2" data-code-cell="annotated-cell-4" data-code-lines="18">Define a new row in a fluid layout</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="2" data-code-lines="18">Define a new row in a fluid layout</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="3">3</dt>
 <dd>
-<span data-code-annotation="3" data-code-cell="annotated-cell-4" data-code-lines="19">Define a column inside the new row. Width is based on total width of 12 units, so width = 6 means a column half as wide as the page.</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="3" data-code-lines="19">Define a column inside the new row. Width is based on total width of 12 units, so width = 6 means a column half as wide as the page.</span>
 </dd>
 <dt data-target-cell="annotated-cell-4" data-target-annotation="4">4</dt>
 <dd>
-<span data-code-annotation="4" data-code-cell="annotated-cell-4" data-code-lines="25">Still within the first row, define a second column.</span>
+<span data-code-cell="annotated-cell-4" data-code-annotation="4" data-code-lines="27">Still within the first row, define a second column.</span>
 </dd>
 </dl>
 <ol start="12" class="example" type="1">
@@ -3258,6 +3259,252 @@ vertical-align: -.125em;
 </section>
 <section id="tabset-page-layout" class="level1">
 <h1>Tabset page layout</h1>
+<p>A Tabset layout, as the name implies, creates a set of tabs horizontally across the top of the app, through which the user can navigate through multiple pages. After this we’ll look at a navbar layout, which is similar, except instead of horizontally across the top, the tabs are arranged vertically along the side.</p>
+<ol start="13" class="example" type="1">
+<li><p>Let’s create a new folder (I’ll call mine <code>2_tabsets</code> since this is part 2 of the tutorial) and a new <code>app.R</code> in that folder.</p></li>
+<li><p>In this app, we’ll set up the bare bones just like before.</p></li>
+</ol>
+<div class="sourceCode" id="annotated-cell-5"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-5-1"><a href="#annotated-cell-5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="annotated-cell-5-2"><a href="#annotated-cell-5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="annotated-cell-5-3"><a href="#annotated-cell-5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-5-4"><a href="#annotated-cell-5-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-5-5" class="code-annotation-target"><a href="#annotated-cell-5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">&#39;App title&#39;</span>),</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-5" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-5-6" class="code-annotation-target"><a href="#annotated-cell-5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabsetPanel</span>(</span>
+<span id="annotated-cell-5-7"><a href="#annotated-cell-5-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="do">### end tabsetPanel</span></span>
+<span id="annotated-cell-5-8"><a href="#annotated-cell-5-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="annotated-cell-5-9"><a href="#annotated-cell-5-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-5-10"><a href="#annotated-cell-5-10" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="annotated-cell-5-11"><a href="#annotated-cell-5-11" aria-hidden="true" tabindex="-1"></a>  <span class="do">### server functions in here</span></span>
+<span id="annotated-cell-5-12"><a href="#annotated-cell-5-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="annotated-cell-5-13"><a href="#annotated-cell-5-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-5-14"><a href="#annotated-cell-5-14" aria-hidden="true" tabindex="-1"></a><span class="do">### Combine them into an app:</span></span>
+<span id="annotated-cell-5-15"><a href="#annotated-cell-5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-5-16"><a href="#annotated-cell-5-16" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-5" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-annotation="1" data-code-lines="5"><code>titlePanel</code> is always optional, but looks nice on the top</span>
+</dd>
+<dt data-target-cell="annotated-cell-5" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-5" data-code-annotation="2" data-code-lines="6"><code>tabsetPanel</code> starts the tabset; all the tab pages are nested inside inside this. Before we used <code>sidebarLayout</code> or <code>fluidRow</code> here.</span>
+</dd>
+</dl>
+<ol start="15" class="example" type="1">
+<li>Now let’s define some tab panels - each tab will represent a page within our app, each with inputs, outputs, text, etc. as appropriate! For now, just set up as placeholders, and we’ll put some stuff in them in the next step.</li>
+</ol>
+<div class="sourceCode" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
+<span id="annotated-cell-6-2"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-3"><a href="#annotated-cell-6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabsetPanel</span>(</span>
+<span id="annotated-cell-6-4"><a href="#annotated-cell-6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="annotated-cell-6-5"><a href="#annotated-cell-6-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 1&#39;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-6-6" class="code-annotation-target"><a href="#annotated-cell-6-6" aria-hidden="true" tabindex="-1"></a>    ), <span class="do">### end tab 1</span></span>
+<span id="annotated-cell-6-7"><a href="#annotated-cell-6-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-6-8"><a href="#annotated-cell-6-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="annotated-cell-6-9"><a href="#annotated-cell-6-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 2&#39;</span></span>
+<span id="annotated-cell-6-10"><a href="#annotated-cell-6-10" aria-hidden="true" tabindex="-1"></a>    ), <span class="do">### end tab 2</span></span>
+<span id="annotated-cell-6-11"><a href="#annotated-cell-6-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-6-12"><a href="#annotated-cell-6-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="annotated-cell-6-13"><a href="#annotated-cell-6-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 3&#39;</span></span>
+<span id="annotated-cell-6-14"><a href="#annotated-cell-6-14" aria-hidden="true" tabindex="-1"></a>    ) <span class="do">### end tab 3  </span></span>
+<span id="annotated-cell-6-15"><a href="#annotated-cell-6-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-6-16"><a href="#annotated-cell-6-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="do">### end tabsetPanel</span></span>
+<span id="annotated-cell-6-17"><a href="#annotated-cell-6-17" aria-hidden="true" tabindex="-1"></a><span class="er">)</span></span>
+<span id="annotated-cell-6-18"><a href="#annotated-cell-6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-6-19"><a href="#annotated-cell-6-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code below<span class="sc">&gt;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-6" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-6" data-code-annotation="1" data-code-lines="6">Using comments to help keep track of where each tab starts and ends! This is helpful when your app isn’t working as expected, because it’s easy to misplace a parenthesis or comma…</span>
+</dd>
+</dl>
+<ol start="16" class="example" type="1">
+<li>Now let’s populate tab 1 with some widgets and text. You can put anything in here - widgets, outputs, images, etc., just as in previous tutorials, but here we just want to see how the layout works so we’ll keep it very simple. Keep track of the commas!</li>
+</ol>
+<div class="sourceCode" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
+<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabsetPanel</span>(</span>
+<span id="annotated-cell-7-4"><a href="#annotated-cell-7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="annotated-cell-7-5"><a href="#annotated-cell-7-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 1&#39;</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-7-6" class="code-annotation-target"><a href="#annotated-cell-7-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">fileInput</span>(<span class="at">inputId =</span> <span class="st">&#39;file&#39;</span>,</span>
+<span id="annotated-cell-7-7"><a href="#annotated-cell-7-7" aria-hidden="true" tabindex="-1"></a>                <span class="at">label =</span> <span class="st">&#39;choose a file&#39;</span>, </span>
+<span id="annotated-cell-7-8"><a href="#annotated-cell-7-8" aria-hidden="true" tabindex="-1"></a>                <span class="at">buttonLabel =</span> <span class="st">&quot;upload...&quot;</span>),</span>
+<span id="annotated-cell-7-9"><a href="#annotated-cell-7-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">p</span>(<span class="st">&#39;Here is some paragraph text&#39;</span>)</span>
+<span id="annotated-cell-7-10"><a href="#annotated-cell-7-10" aria-hidden="true" tabindex="-1"></a>    ), <span class="do">### end tab 1</span></span>
+<span id="annotated-cell-7-11"><a href="#annotated-cell-7-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-7-12"><a href="#annotated-cell-7-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="annotated-cell-7-13"><a href="#annotated-cell-7-13" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 2&#39;</span></span>
+<span id="annotated-cell-7-14"><a href="#annotated-cell-7-14" aria-hidden="true" tabindex="-1"></a>    ), <span class="do">### end tab 2</span></span>
+<span id="annotated-cell-7-15"><a href="#annotated-cell-7-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-7-16"><a href="#annotated-cell-7-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="annotated-cell-7-17"><a href="#annotated-cell-7-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 3&#39;</span></span>
+<span id="annotated-cell-7-18"><a href="#annotated-cell-7-18" aria-hidden="true" tabindex="-1"></a>    ) <span class="do">### end tab 3  </span></span>
+<span id="annotated-cell-7-19"><a href="#annotated-cell-7-19" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-7-20"><a href="#annotated-cell-7-20" aria-hidden="true" tabindex="-1"></a>  ) <span class="do">### end tabsetPanel</span></span>
+<span id="annotated-cell-7-21"><a href="#annotated-cell-7-21" aria-hidden="true" tabindex="-1"></a><span class="er">)</span></span>
+<span id="annotated-cell-7-22"><a href="#annotated-cell-7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-7-23"><a href="#annotated-cell-7-23" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code below<span class="sc">&gt;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-7" data-code-annotation="1" data-code-lines="6">This fileInput widget will allow a user to select a file with a cool browser interface. Note, the widget does NOT actually do anything with the file (read, write, etc) - it just retrieves a file path that you can use in the server, with <code>read_csv</code> or <code>write_csv</code> for example.</span>
+</dd>
+</dl>
+<ol start="17" class="example" type="1">
+<li><p>Run this! see the tabs, click on them to navigate around the app. Tab 2 and 3 are blank so far, let’s add something to those now. Close the app.</p></li>
+<li><p>All these layouts can be nested within one another. Here, for tab 2, let’s set it up like a <code>sidebarLayout</code>, or we could do a <code>fluidRow</code> layout as well if we preferred.</p></li>
+</ol>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabsetPanel</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>tabPanel <span class="dv">1</span> code up here<span class="sc">&gt;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 2&#39;</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sidebarLayout</span>(</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        <span class="fu">sidebarPanel</span>(</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>          <span class="fu">h3</span>(<span class="st">&#39;Here is a side bar!&#39;</span>)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>        ),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        <span class="fu">mainPanel</span>(</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>          <span class="fu">h2</span>(<span class="st">&#39;Here is a main panel!&#39;</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>      ) <span class="do">### end sidebarLayout</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    ), <span class="do">### end tab 2</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 3&#39;</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    ) <span class="do">### end tab 3  </span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="do">### end tabsetPanel</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="er">)</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code below<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="19" class="example" type="1">
+<li>You could also go the other direction and nest a <code>tabsetPanel</code> inside a <code>sidebarLayout</code>. We can even nest a <code>tabsetPanel</code> inside another <code>tabsetPanel</code>! Let’s try that for tab 3.</li>
+</ol>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabsetPanel</span>(</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>tabPanel <span class="dv">1</span> code <span class="cf">in</span> here<span class="sc">&gt;</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>tabPanel <span class="dv">2</span> code <span class="cf">in</span> here<span class="sc">&gt;</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">title =</span> <span class="st">&#39;Tab 3&#39;</span>,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tabsetPanel</span>(</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&#39;Tab 3a&#39;</span>,</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>          <span class="fu">h2</span>(<span class="st">&#39;This tab is nested inside another tab!&#39;</span>),</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>          <span class="fu">p</span>(<span class="st">&#39;here is some paragraph text&#39;</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        ), <span class="do">### end tab 3a</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tabPanel</span>(</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">title =</span> <span class="st">&#39;Tab 3b&#39;</span>,</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>          <span class="fu">h3</span>(<span class="st">&#39;another tab&#39;</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>        ) <span class="do">### end tab 3b</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>      ) <span class="do">### end nested tabsetPanel</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    ) <span class="do">### end tab 3  </span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="do">### end tabsetPanel</span></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="er">)</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code below<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="20" class="example" type="1">
+<li>One variation on the <code>tabsetPanel</code> layout is the <code>navlistPanel</code> layout - this arranges the tabs vertically instead of horizontally. Let’s modify our current app by changing from <code>tabsetPanel</code> to <code>navlistPanel</code>!</li>
+</ol>
+<div class="sourceCode" id="annotated-cell-10"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-10-1"><a href="#annotated-cell-10-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
+<span id="annotated-cell-10-2"><a href="#annotated-cell-10-2" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">fluidPage</span>(</span>
+<span id="annotated-cell-10-3"><a href="#annotated-cell-10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">titlePanel</span>(<span class="st">&#39;App title&#39;</span>),</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-10-4" class="code-annotation-target"><a href="#annotated-cell-10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">navlistPanel</span>(</span>
+<span id="annotated-cell-10-5"><a href="#annotated-cell-10-5" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-10-6"><a href="#annotated-cell-10-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>tab <span class="dv">1</span> code here<span class="sc">&gt;</span>,</span>
+<span id="annotated-cell-10-7"><a href="#annotated-cell-10-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-10" data-target-annotation="2" onclick="event.preventDefault();" href>2</a><span id="annotated-cell-10-8" class="code-annotation-target"><a href="#annotated-cell-10-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">h3</span>(<span class="st">&#39;We can add headings within the list&#39;</span>),</span>
+<span id="annotated-cell-10-9"><a href="#annotated-cell-10-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-10-10"><a href="#annotated-cell-10-10" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>tab <span class="dv">2</span> code here<span class="sc">&gt;</span>,</span>
+<span id="annotated-cell-10-11"><a href="#annotated-cell-10-11" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="annotated-cell-10-12"><a href="#annotated-cell-10-12" aria-hidden="true" tabindex="-1"></a>    <span class="sc">&lt;</span>tab <span class="dv">3</span> code here</span>
+<span id="annotated-cell-10-13"><a href="#annotated-cell-10-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="annotated-cell-10-14"><a href="#annotated-cell-10-14" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="annotated-cell-10-15"><a href="#annotated-cell-10-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code below<span class="sc">&gt;</span></span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-10" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="1" data-code-lines="4">Just change from <code>tabsetPanel</code> to <code>navlistPanel</code> here</span>
+</dd>
+<dt data-target-cell="annotated-cell-10" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-10" data-code-annotation="2" data-code-lines="8">You can separate groups of tabs using headers to explain each subgroup.</span>
+</dd>
+</dl>
+<p>The <code>tabsetPanel</code> and <code>navlistPanel</code> layouts is familiar to anyone who’s ever used an app, and allows you to create a logical flow of ideas for the user to navigate as they see fit. Perhaps the first tab is an overview of the app, then a couple of tabs with inputs and outputs, and a final tab with credits and data citations.</p>
+<p>The ability to nest other layouts within these <code>tabPanel</code>s provides you a lot of flexibility in terms of how the app appears. Keep in mind, simple is probably better than cluttered, and tabs within tabs is probably overkill…</p>
+</section>
+<section id="navbar-page-layout" class="level1">
+<h1>Navbar page layout</h1>
+<p>Similar to the <code>tabsetPanel</code> above, a <code>navbarPage</code> layout lists tab titles across the top, but allows you to also add drop-down menus for finer-grained selection. Let’s create a new folder (mine is <code>3_navbar</code>) and a new blank app, then put in the bare bones.</p>
+<div class="sourceCode" id="annotated-cell-11"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-11-1"><a href="#annotated-cell-11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(shiny)</span>
+<span id="annotated-cell-11-2"><a href="#annotated-cell-11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="annotated-cell-11-3"><a href="#annotated-cell-11-3" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-11" data-target-annotation="1" onclick="event.preventDefault();" href>1</a><span id="annotated-cell-11-4" class="code-annotation-target"><a href="#annotated-cell-11-4" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
+<span id="annotated-cell-11-5"><a href="#annotated-cell-11-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Navbar app&quot;</span></span>
+<span id="annotated-cell-11-6"><a href="#annotated-cell-11-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="annotated-cell-11-7"><a href="#annotated-cell-11-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-11-8"><a href="#annotated-cell-11-8" aria-hidden="true" tabindex="-1"></a>server <span class="ot">&lt;-</span> <span class="cf">function</span>(input, output) {</span>
+<span id="annotated-cell-11-9"><a href="#annotated-cell-11-9" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="annotated-cell-11-10"><a href="#annotated-cell-11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-11-11"><a href="#annotated-cell-11-11" aria-hidden="true" tabindex="-1"></a><span class="do">### Combine them into an app:</span></span>
+<span id="annotated-cell-11-12"><a href="#annotated-cell-11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-11-13"><a href="#annotated-cell-11-13" aria-hidden="true" tabindex="-1"></a><span class="fu">shinyApp</span>(<span class="at">ui =</span> ui, <span class="at">server =</span> server)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-11" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-11" data-code-annotation="1" data-code-lines="4">Note the difference here: before, the ui was defined at its top level with <code>fluidPage</code>, but now it is defined with <code>navbarPage</code>.</span>
+</dd>
+</dl>
+<ol start="21" class="example" type="1">
+<li>Now let’s add some <code>tabPanel</code>s. The <code>tabPanel</code>s function pretty much like before, but the appearance is slightly different in this layout.</li>
+</ol>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>( </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Navbar app&quot;</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabPanel</span>(</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;panel 1&quot;</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">h3</span>(<span class="st">&quot;content for panel 1&quot;</span>)</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  ), <span class="do">### end panel 1</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabPanel</span>(</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;panel 2&quot;</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">p</span>(<span class="st">&quot;content for panel 2&quot;</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>  ), <span class="do">### end panel 2</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tabPanel</span>(</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;panel 3&quot;</span>,</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">p</span>(<span class="st">&quot;content for panel 3&quot;</span>)</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="do">### end panel 3</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code below<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ol start="22" class="example" type="1">
+<li><p>Run the app to see how the appearance differs from the <code>tabsetPanel</code> layout. Close the app.</p></li>
+<li><p>Finally, let’s add a <code>navbarMenu</code> to create a dropdown menu offering suboptions.</p></li>
+</ol>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code above<span class="sc">&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>ui <span class="ot">&lt;-</span> <span class="fu">navbarPage</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">&quot;Page title&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>tabpanel <span class="dv">1</span> code<span class="sc">&gt;</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>tabpanel <span class="dv">2</span> code<span class="sc">&gt;</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="sc">&lt;</span>tabpanel <span class="dv">3</span> code<span class="sc">&gt;</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">navbarMenu</span>(</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;subpanels&quot;</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">&quot;one fish&quot;</span>, <span class="st">&quot;two fish&quot;</span>),</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">tabPanel</span>(<span class="st">&quot;red fish&quot;</span>, <span class="st">&quot;blue fish&quot;</span>)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>other code below<span class="sc">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>The navbarMenu also works on tabset pages. Here with navbarPage you can still mix and match other layouts inside your tabPanels just like before. A lot of flexibility, so be creative with your designs as you set up the infrastructure for your Shiny App!</p>
+<p>There are a lot more details in the <a href="https://mastering-shiny.org/action-layout.html">Mastering Shiny book</a> - if you have an idea that was not covered in this tutorial, explore further in there to see how you can create your ideal Shiny App layout.</p>
+<p>:::</p>
 </section>
 
 </main>

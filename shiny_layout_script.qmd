@@ -20,7 +20,6 @@ editor: visual
 * This page has more details on how to apply different layouts into your Shiny App: [https://mastering-shiny.org/action-layout.html](https://mastering-shiny.org/action-layout.html)
 
 
-
 # Single page layouts
 
 ## Get started:
@@ -48,7 +47,7 @@ shinyApp(ui = ui, server = server)
 (@) Notice that a 'Run app' option shows up - but we know there's nothing in the app yet.
 
 
-## Build a basic sidebar layout
+## Build a basic `sidebarLayout`
 
 This is the same layout we created in the first Shiny video, but we'll briefly recreate it here so we can see how other layouts differ.
 
@@ -108,11 +107,11 @@ server <- function(input, output) {
 
 (@) Save the app and run it.  Note the title panel, the sidebar panel, and the main panel.
 
-## Let's try a more flexible  layout
+## Let's try a more flexible layout: `fluidRow`
 
 (@) Comment out the sidebarLayout code, using command-shift-C.  We'll copy and paste the widgets etc. in just a minute.
 
-(@) Now we'll use the `fluidRow` type of layout, which can create rows with columns of different widths within them.  This gives more control over the layout than `sidebarLayout`.
+(@) Now we'll use the `fluidRow` type of layout, which can create rows with columns of different widths within them.  Each row is 12 column units wide, which we can allocate across multiple columns (or a single 12-wide column!).  For example, two equally wide columns would be six units each, or easily create three or four equal columns.  They don't have to be equal, e.g., you could have a 3-unit, a 5-unit, and a 4-unit column if that worked well for your app.  This gives more control over the layout than `sidebarLayout`.
 
 ```r
 <other code above>
@@ -132,18 +131,18 @@ ui <- fluidPage(
   #     plotOutput('mpg_plot')
   #   )
   # )
-  fluidRow(         # <2>
-    column(         # <3>
-      width = 6,
-      h3('Header for first row, first column'),
-      selectInput(inputId = 'test', label = 'choose',
-                  choices = c(month.name))
-    ),
-    column(         # <4>
-      width = 6,
-      h2('Header for first row, second column'),
-      radioButtons(inputId = 'test2', label = 'click',
-                   choices = 1:5)
+  fluidRow(                       # <2>
+    column(width = 6,             # <3>
+      h3('Column 1 header'),
+      radioButtons(
+        inputId = 'cyl_button',
+        label = 'Number of cylinders',
+        choices = c(4, 6, 8)
+      )
+    ), ### end column
+    column(width = 6,             # <4>
+      h3('Column 2 header'),
+      plotOutput('mpg_plot')
     )
   ), ### end fluidRow 1
 
@@ -163,6 +162,7 @@ ui <- fluidPage(
       textInput(inputId = 'text', label = 'type', width = '100%')
     )
   ) ### end fluidRow 2
+  
 ) ### end fluidPage
 
 <other code below>
@@ -176,3 +176,243 @@ ui <- fluidPage(
 
 # Tabset page layout
 
+A Tabset layout, as the name implies, creates a set of tabs horizontally across the top of the app, through which the user can navigate through multiple pages.  After this we'll look at a navbar layout, which is similar, except instead of horizontally across the top, the tabs are arranged vertically along the side.
+
+(@) Let's create a new folder (I'll call mine `2_tabsets` since this is part 2 of the tutorial) and a new `app.R` in that folder.
+
+(@) In this app, we'll set up the bare bones just like before.
+
+```r
+library(shiny)
+library(tidyverse)
+
+ui <- fluidPage(
+  titlePanel('App title'), # <1> 
+  tabsetPanel( # <2> 
+  ) ### end tabsetPanel
+)
+
+server <- function(input, output) {
+  ### server functions in here
+}
+
+### Combine them into an app:
+
+shinyApp(ui = ui, server = server)
+```
+1. `titlePanel` is always optional, but looks nice on the top
+2. `tabsetPanel` starts the tabset; all the tab pages are nested inside inside this.  Before we used `sidebarLayout` or `fluidRow` here.
+
+(@) Now let's define some tab panels - each tab will represent a page within our app, each with inputs, outputs, text, etc. as appropriate!  For now, just set up as placeholders, and we'll put some stuff in them in the next step.
+
+```r
+<other code above>
+
+  tabsetPanel(
+    tabPanel(
+      title = 'Tab 1'
+    ), ### end tab 1 # <1>
+    
+    tabPanel(
+      title = 'Tab 2'
+    ), ### end tab 2
+    
+    tabPanel(
+      title = 'Tab 3'
+    ) ### end tab 3  
+    
+  ) ### end tabsetPanel
+)
+
+<other code below>
+```
+1. Using comments to help keep track of where each tab starts and ends!  This is helpful when your app isn't working as expected, because it's easy to misplace a parenthesis or comma...
+
+(@) Now let's populate tab 1 with some widgets and text.  You can put anything in here - widgets, outputs, images, etc., just as in previous tutorials, but here we just want to see how the layout works so we'll keep it very simple.  Keep track of the commas!
+
+```r
+<other code above>
+
+  tabsetPanel(
+    tabPanel(
+      title = 'Tab 1',
+      fileInput(inputId = 'file', # <1> 
+                label = 'choose a file', 
+                buttonLabel = "upload..."),
+      p('Here is some paragraph text')
+    ), ### end tab 1
+    
+    tabPanel(
+      title = 'Tab 2'
+    ), ### end tab 2
+    
+    tabPanel(
+      title = 'Tab 3'
+    ) ### end tab 3  
+    
+  ) ### end tabsetPanel
+)
+
+<other code below>
+```
+1. This fileInput widget will allow a user to select a file with a cool browser interface.  Note, the widget does NOT actually do anything with the file (read, write, etc) - it just retrieves a file path that you can use in the server, with `read_csv` or `write_csv` for example.
+
+(@) Run this!  see the tabs, click on them to navigate around the app.  Tab 2 and 3 are blank so far, let's add something to those now.  Close the app.
+
+(@) All these layouts can be nested within one another.  Here, for tab 2, let's set it up like a `sidebarLayout`, or we could do a `fluidRow` layout as well if we preferred.
+```r
+<other code above>
+
+  tabsetPanel(
+    <tabPanel 1 code up here>,
+    
+    tabPanel(
+      title = 'Tab 2',
+      sidebarLayout(
+        sidebarPanel(
+          h3('Here is a side bar!')
+        ),
+        mainPanel(
+          h2('Here is a main panel!')
+        )
+      ) ### end sidebarLayout
+    ), ### end tab 2
+    
+    tabPanel(
+      title = 'Tab 3'
+    ) ### end tab 3  
+    
+  ) ### end tabsetPanel
+)
+
+<other code below>
+```
+
+(@) You could also go the other direction and nest a `tabsetPanel` inside a `sidebarLayout`.  We can even nest a `tabsetPanel` inside another `tabsetPanel`!  Let's try that for tab 3.
+```r
+<other code above>
+
+  tabsetPanel(
+    <tabPanel 1 code in here>,
+    
+    <tabPanel 2 code in here>,
+    
+    tabPanel(
+      title = 'Tab 3',
+      tabsetPanel(
+        tabPanel(
+          title = 'Tab 3a',
+          h2('This tab is nested inside another tab!'),
+          p('here is some paragraph text')
+        ), ### end tab 3a
+        tabPanel(
+          title = 'Tab 3b',
+          h3('another tab')
+        ) ### end tab 3b
+      ) ### end nested tabsetPanel
+    ) ### end tab 3  
+    
+  ) ### end tabsetPanel
+)
+
+<other code below>
+```
+
+(@) One variation on the `tabsetPanel` layout is the `navlistPanel` layout - this arranges the tabs vertically instead of horizontally.  Let's modify our current app by changing from `tabsetPanel` to `navlistPanel`!
+
+```r
+<other code above>
+ui <- fluidPage(
+  titlePanel('App title'),
+  navlistPanel( # <1> 
+    
+    <tab 1 code here>,
+    
+    h3('We can add headings within the list'), # <2>
+    
+    <tab 2 code here>,
+    
+    <tab 3 code here
+  )
+)
+<other code below>
+```
+1. Just change from `tabsetPanel` to `navlistPanel` here
+2. You can separate groups of tabs using headers to explain each subgroup.
+
+The `tabsetPanel` and `navlistPanel` layouts is familiar to anyone who's ever used an app, and allows you to create a logical flow of ideas for the user to navigate as they see fit.  Perhaps the first tab is an overview of the app, then a couple of tabs with inputs and outputs, and a final tab with credits and data citations.
+
+The ability to nest other layouts within these `tabPanel`s provides you a lot of flexibility in terms of how the app appears.  Keep in mind, simple is probably better than cluttered, and tabs within tabs is probably overkill...
+
+# Navbar page layout
+
+Similar to the `tabsetPanel` above, a `navbarPage` layout lists tab titles across the top, but allows you to also add drop-down menus for finer-grained selection.  Let's create a new folder (mine is `3_navbar`) and a new blank app, then put in the bare bones.
+
+```r
+library(shiny)
+library(tidyverse)
+
+ui <- navbarPage(              # <1>
+  title = "Navbar app"
+)
+
+server <- function(input, output) {
+}
+
+### Combine them into an app:
+
+shinyApp(ui = ui, server = server)
+```
+1. Note the difference here: before, the ui was defined at its top level with `fluidPage`, but now it is defined with `navbarPage`.
+
+(@) Now let's add some `tabPanel`s.  The `tabPanel`s function pretty much like before, but the appearance is slightly different in this layout.
+
+```r
+<other code above>
+
+ui <- navbarPage( 
+  title = "Navbar app",
+  tabPanel(
+    title = "panel 1",
+    h3("content for panel 1")
+  ), ### end panel 1
+  tabPanel(
+    title = "panel 2",
+    p("content for panel 2")
+  ), ### end panel 2
+  tabPanel(
+    title = "panel 3",
+    p("content for panel 3")
+  ) ### end panel 3
+)
+
+<other code below>
+```
+
+(@) Run the app to see how the appearance differs from the `tabsetPanel` layout.  Close the app.
+
+(@) Finally, let's add a `navbarMenu` to create a dropdown menu offering suboptions.
+
+```r
+<other code above>
+
+ui <- navbarPage(
+  title = "Page title",
+  <tabpanel 1 code>,
+  <tabpanel 2 code>,
+  <tabpanel 3 code>,
+  navbarMenu(
+    title = "subpanels",
+    tabPanel("one fish", "two fish"),
+    tabPanel("red fish", "blue fish")
+  )
+)
+
+<other code below>
+```
+
+The navbarMenu also works on tabset pages.  Here with navbarPage you can still mix and match other layouts inside your tabPanels just like before.  A lot of flexibility, so be creative with your designs as you set up the infrastructure for your Shiny App!
+
+There are a lot more details in the [Mastering Shiny book](https://mastering-shiny.org/action-layout.html) - if you have an idea that was not covered in this tutorial, explore further in there to see how you can create your ideal Shiny App layout. 
+
+:::

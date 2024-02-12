@@ -1,0 +1,36 @@
+library(shiny)
+library(tidyverse)
+
+
+ui <- navbarPage(   ### Different here!  navbarPage instead of fluidPage
+  title = 'Navbar app',
+  tabPanel(
+    title = 'panel 1',
+    h3('content for panel 1')
+  ), ### end panel 1
+
+  tabPanel(
+    title = 'panel 2',
+    p('content for panel 2')
+  ), ### end panel 2
+
+  tabPanel(
+    title = 'panel 3',
+    p('content for panel 3')
+  ), ### end panel 1
+
+  navbarMenu(
+    title = 'subpanels',
+    tabPanel('one fish', 'two fish'),
+    tabPanel('red fish', 'blue fish')
+  )
+)
+
+
+server <- function(input, output) {
+  ### code down here
+}
+
+
+### Combine into an app
+shinyApp(ui = ui, server = server)
